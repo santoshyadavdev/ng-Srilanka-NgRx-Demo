@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TeamsComponent } from './teams/teams/teams.component';
+import { MyTeamsComponent } from './teams/my-teams/my-teams.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'teams', component: TeamsComponent },
+  { path: 'my-teams', component: MyTeamsComponent },
+  { path: '', redirectTo: 'teams', pathMatch: 'full' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
