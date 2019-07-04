@@ -6,12 +6,17 @@ import {
 
 import { ITeams } from '../teams';
 
-import {  TeamsLoadFailure, TeamsLoadSuccess } from './team.actions';
+import {
+  TeamsLoadFailure,
+  TeamsLoadSuccess,
+  MarkAsFavoutite
+} from './team.actions';
 
 export interface TeamState {
   teams: ITeams[];
   favoutiteTeams: ITeams[];
   currentTeamId: number | null;
+  error: string;
 }
 
 export interface State {
@@ -21,7 +26,8 @@ export interface State {
 const initialeState: TeamState = {
   currentTeamId: null,
   favoutiteTeams: [],
-  teams: []
+  teams: [],
+  error: ''
 };
 
 const getTeamFeatureSelector = createFeatureSelector<TeamState>('team');
@@ -62,6 +68,20 @@ export const getCurrentTeam = createSelector(
 
 export const teamReducer = createReducer(
   initialeState,
-  on(TeamsLoadSuccess)
-)
+  on(TeamsLoadSuccess, (state, teams) => ({
+    ...state,
+    teams: teams.teams,
+    error: ''
+  })),
+  on(TeamsLoadFailure, (state, res) => ({
+    ...state,
+    teams: [],
+    error: res.error
+  })),
+  on(MarkAsFavoutite, (state, data) => (
+    {
+      ...state,
+      favoutiteTeams: [...state.favoutiteTeams, data.team]
+    }))
+);
 

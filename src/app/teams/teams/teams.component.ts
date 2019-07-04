@@ -3,7 +3,10 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { ITeams } from '../teams';
 import * as fromTeam from '../state/team.reducer';
-import { TeamsLoadSuccess, TeamLoad, TeamsLoadFailure } from '../state/team.actions';
+import {
+  TeamLoad,
+  MarkAsFavoutite
+} from '../state/team.actions';
 
 @Component({
   selector: 'app-teams',
@@ -16,9 +19,13 @@ export class TeamsComponent implements OnInit {
   constructor(private store: Store<fromTeam.State>) { }
 
   ngOnInit() {
-     this.store.dispatch(TeamLoad());
+    this.store.dispatch(TeamLoad());
 
-     this.teams$ = this.store.pipe(select(fromTeam.getTeamlist));
+    this.teams$ = this.store.pipe(select(fromTeam.getTeamlist));
+  }
+
+  markAsFav(team: ITeams) {
+    this.store.dispatch(MarkAsFavoutite({ team }));
   }
 
 }

@@ -1,1 +1,4 @@
-<app-teams-list [teamList]="teams$ | async"></app-teams-list>
+<app-teams-list
+[teamList]="teams$ | async"
+(addToFav)="markAsFav($event)"
+></app-teams-list>
