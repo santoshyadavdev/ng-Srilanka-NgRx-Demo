@@ -1,7 +1,8 @@
 import {
   on, createFeatureSelector,
   createSelector,
-  createReducer
+  createReducer,
+  Action
 } from '@ngrx/store';
 
 import { ITeams } from '../teams';
@@ -85,3 +86,7 @@ export const teamReducer = createReducer(
     }))
 );
 
+
+export function reducer(state: TeamState | undefined, action: Action) {
+  return teamReducer(state, action);
+}

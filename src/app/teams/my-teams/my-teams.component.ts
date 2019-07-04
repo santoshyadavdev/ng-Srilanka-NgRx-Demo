@@ -13,6 +13,8 @@ import { GetMyTeams } from '../state/team.actions';
 export class MyTeamsComponent implements OnInit {
 
   myTeam$: Observable<ITeams[]>;
+  displayedColumns = ['id', 'full_name', 'city', 'conference', 'division'];
+
   constructor(private store: Store<fromTeam.State>) { }
 
   ngOnInit() {

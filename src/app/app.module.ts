@@ -19,7 +19,7 @@ import { TeamsListComponent } from './teams/teams-list/teams-list.component';
 import { MyTeamsComponent } from './teams/my-teams/my-teams.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 
-import { teamReducer, TeamsEffect } from './teams/state';
+import { reducer, TeamsEffect } from './teams/state';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 @NgModule({
@@ -35,7 +35,7 @@ import {MatTableModule} from '@angular/material/table';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ team: teamReducer }),
+    StoreModule.forRoot({ team: reducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([TeamsEffect]),
     LayoutModule,
