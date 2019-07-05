@@ -11,3 +11,5 @@ export const TeamsLoadFailure = createAction('[Teams] Get Teams Failure',
 export const MarkAsFavoutite = createAction('[Teams] Mark As Favourite',
   props<{ team: ITeams }>());
 export const GetMyTeams = createAction('[Teams] Get My Teams');
+export const CityFilter = createAction('[Teams] Filter By City',
+  props<{ city: string }>());

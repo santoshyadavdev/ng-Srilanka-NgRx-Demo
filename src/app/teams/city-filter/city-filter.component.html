@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Filter By City</mat-label>
+  <mat-select (selectionChange)="selectCity($event)">
+    <mat-option *ngFor="let team of teamList" [value]="team.city">
+      {{team.city}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

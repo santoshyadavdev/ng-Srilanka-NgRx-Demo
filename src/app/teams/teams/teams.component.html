@@ -1,3 +1,7 @@
+<app-city-filter [teamList]="teams$ | async"
+(cityFilter)="applyFilter($event)">
+</app-city-filter>
+
 <app-teams-list
 [teamList]="teams$ | async"
 (addToFav)="markAsFav($event)"

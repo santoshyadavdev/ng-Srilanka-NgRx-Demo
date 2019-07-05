@@ -12,7 +12,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatToolbarModule, MatButtonModule,
   MatSidenavModule, MatIconModule,
-  MatListModule
+  MatListModule, MatSelectModule
 } from '@angular/material';
 import { TeamsComponent } from './teams/teams/teams.component';
 import { TeamsListComponent } from './teams/teams-list/teams-list.component';
@@ -22,13 +22,15 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { reducer, TeamsEffect } from './teams/state';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { CityFilterComponent } from './teams/city-filter/city-filter.component';
 @NgModule({
   declarations: [
     AppComponent,
     TeamsComponent,
     TeamsListComponent,
     MyTeamsComponent,
-    MainNavComponent
+    MainNavComponent,
+    CityFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

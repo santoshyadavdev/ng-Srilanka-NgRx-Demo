@@ -5,7 +5,8 @@ import { ITeams } from '../teams';
 import * as fromTeam from '../state/team.reducer';
 import {
   TeamLoad,
-  MarkAsFavoutite
+  MarkAsFavoutite,
+  CityFilter
 } from '../state/team.actions';
 
 @Component({
@@ -26,6 +27,13 @@ export class TeamsComponent implements OnInit {
 
   markAsFav(team: ITeams) {
     this.store.dispatch(MarkAsFavoutite({ team }));
+  }
+
+  applyFilter(currentCity: string) {
+    this.store.dispatch(CityFilter({ city: currentCity }));
+
+    this.teams$ = this.store.pipe(select(fromTeam.getCurrentTeam));
+
   }
 
 }

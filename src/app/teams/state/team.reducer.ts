@@ -10,13 +10,14 @@ import { ITeams } from '../teams';
 import {
   TeamsLoadFailure,
   TeamsLoadSuccess,
-  MarkAsFavoutite
+  MarkAsFavoutite,
+  CityFilter
 } from './team.actions';
 
 export interface TeamState {
   teams: ITeams[];
   favoutiteTeams: ITeams[];
-  currentTeamId: number | null;
+  currentCity: string | null;
   error: string;
 }
 
@@ -25,7 +26,7 @@ export interface State {
 }
 
 const initialeState: TeamState = {
-  currentTeamId: null,
+  currentCity: null,
   favoutiteTeams: [],
   teams: [],
   error: ''
@@ -43,26 +44,16 @@ export const getFavouriteTeamList = createSelector(
   state => state.favoutiteTeams
 );
 
-export const getCurrentTeamId = createSelector(
+export const getCurrentCity = createSelector(
   getTeamFeatureSelector,
-  state => state.currentTeamId
+  state => state.currentCity
 );
 
 export const getCurrentTeam = createSelector(
   getTeamFeatureSelector,
-  getCurrentTeamId,
-  (state, currentteamId) => {
-    if (currentteamId === 0) {
-      return {
-        id: 0,
-        productCode: '',
-        productName: '',
-        description: '',
-        starRating: 0
-      };
-    } else {
-      return currentteamId ? state.teams.find(p => p.id === currentteamId) : null;
-    }
+  getCurrentCity,
+  (state, currentCity) => {
+    return currentCity ? state.teams.filter(p => p.city === currentCity) : null;
   }
 );
 
@@ -79,11 +70,14 @@ export const teamReducer = createReducer(
     teams: [],
     error: res.error
   })),
-  on(MarkAsFavoutite, (state, data) => (
-    {
-      ...state,
-      favoutiteTeams: [...state.favoutiteTeams, data.team]
-    }))
+  on(MarkAsFavoutite, (state, data) => ({
+    ...state,
+    favoutiteTeams: [...state.favoutiteTeams, data.team]
+  })),
+  on(CityFilter, (state, data) => ({
+    ...state,
+    currentCity: data.city
+  }))
 );
 
 
