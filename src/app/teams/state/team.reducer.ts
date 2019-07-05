@@ -5,7 +5,7 @@ import {
   Action
 } from '@ngrx/store';
 
-import { ITeams } from '../teams';
+import { ITeam } from '../teams';
 
 import {
   TeamsLoadFailure,
@@ -15,8 +15,8 @@ import {
 } from './team.actions';
 
 export interface TeamState {
-  teams: ITeams[];
-  favoutiteTeams: ITeams[];
+  teams: ITeam[];
+  favoutiteTeams: ITeam[];
   currentCity: string | null;
   error: string;
 }

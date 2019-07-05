@@ -2,7 +2,7 @@ import {
   Component, OnInit, Input,
   Output, EventEmitter
 } from '@angular/core';
-import { ITeams } from '../teams';
+import { ITeam } from '../teams';
 import { MatSelectChange } from '@angular/material';
 
 @Component({
@@ -12,8 +12,8 @@ import { MatSelectChange } from '@angular/material';
 })
 export class CityFilterComponent implements OnInit {
 
-  @Input() teamList: Array<ITeams>;
-  @Output() cityFilter = new EventEmitter<ITeams>();
+  @Input() teamList: Array<ITeam>;
+  @Output() cityFilter = new EventEmitter<ITeam>();
   constructor() { }
 
   ngOnInit() {

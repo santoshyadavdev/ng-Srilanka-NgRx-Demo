@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { ITeams } from '../teams';
+import { ITeam } from '../teams';
 import * as fromTeam from '../state/team.reducer';
 import {
   TeamLoad,
@@ -16,7 +16,7 @@ import {
 })
 export class TeamsComponent implements OnInit {
 
-  teams$: Observable<ITeams[]>;
+  teams$: Observable<ITeam[]>;
   constructor(private store: Store<fromTeam.State>) { }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class TeamsComponent implements OnInit {
     this.teams$ = this.store.pipe(select(fromTeam.getTeamlist));
   }
 
-  markAsFav(team: ITeams) {
+  markAsFav(team: ITeam) {
     this.store.dispatch(MarkAsFavoutite({ team }));
   }
 

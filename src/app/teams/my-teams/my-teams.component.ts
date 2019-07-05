@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { ITeams } from '../teams';
+import { ITeam } from '../teams';
 import * as fromTeam from '../state/team.reducer';
 import { GetMyTeams } from '../state/team.actions';
 
@@ -12,7 +12,7 @@ import { GetMyTeams } from '../state/team.actions';
 })
 export class MyTeamsComponent implements OnInit {
 
-  myTeam$: Observable<ITeams[]>;
+  myTeam$: Observable<ITeam[]>;
   displayedColumns = ['id', 'full_name', 'city', 'conference', 'division'];
 
   constructor(private store: Store<fromTeam.State>) { }
