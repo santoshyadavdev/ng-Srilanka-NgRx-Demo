@@ -8,7 +8,7 @@ export const TeamsLoadSuccess = createAction('[Teams] Get Teams Success',
   props<{ teams: ITeam[] }>());
 export const TeamsLoadFailure = createAction('[Teams] Get Teams Failure',
   props<{ error: string }>());
-export const MarkAsFavoutite = createAction('[Teams] Mark As Favourite',
+export const MarkAsFavourite = createAction('[Teams] Mark As Favourite',
   props<{ team: ITeam }>());
 export const GetMyTeams = createAction('[Teams] Get My Teams');
 export const CityFilter = createAction('[Teams] Filter By City',

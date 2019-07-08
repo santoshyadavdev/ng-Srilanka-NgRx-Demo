@@ -10,13 +10,13 @@ import { ITeam } from '../teams';
 import {
   TeamsLoadFailure,
   TeamsLoadSuccess,
-  MarkAsFavoutite,
+  MarkAsFavourite,
   CityFilter
 } from './team.actions';
 
 export interface TeamState {
   teams: ITeam[];
-  favoutiteTeams: ITeam[];
+  favouriteTeams: ITeam[];
   currentCity: string | null;
   error: string;
 }
@@ -27,7 +27,7 @@ export interface State {
 
 const initialeState: TeamState = {
   currentCity: null,
-  favoutiteTeams: [],
+  favouriteTeams: [],
   teams: [],
   error: ''
 };
@@ -41,7 +41,7 @@ export const getTeamlist = createSelector(
 
 export const getFavouriteTeamList = createSelector(
   getTeamFeatureSelector,
-  state => state.favoutiteTeams
+  state => state.favouriteTeams
 );
 
 export const getCurrentCity = createSelector(
@@ -70,9 +70,9 @@ export const teamReducer = createReducer(
     teams: [],
     error: res.error
   })),
-  on(MarkAsFavoutite, (state, data) => ({
+  on(MarkAsFavourite, (state, data) => ({
     ...state,
-    favoutiteTeams: [...state.favoutiteTeams, data.team]
+    favouriteTeams: [...state.favouriteTeams, data.team]
   })),
   on(CityFilter, (state, data) => ({
     ...state,
