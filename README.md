@@ -1,5 +1,7 @@
 # NgslDemoApp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/santoshyadav198613/ng-Srilanka-NgRx-Demo.svg)](https://greenkeeper.io/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
 ## Development server
