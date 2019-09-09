@@ -17,12 +17,14 @@ import {
 export class TeamsComponent implements OnInit {
 
   teams$: Observable<ITeam[]>;
+  error$: Observable<string>;
   constructor(private store: Store<fromTeam.State>) { }
 
   ngOnInit() {
     this.store.dispatch(TeamLoad());
 
     this.teams$ = this.store.pipe(select(fromTeam.getTeamlist));
+    this.error$ = this.store.pipe(select(fromTeam.getError));
   }
 
   markAsFav(team: ITeam) {

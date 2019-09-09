@@ -49,6 +49,11 @@ export const getCurrentCity = createSelector(
   state => state.currentCity
 );
 
+export const getError = createSelector(
+  getTeamFeatureSelector,
+  state => state.error
+)
+
 export const getCurrentTeam = createSelector(
   getTeamFeatureSelector,
   getCurrentCity,
@@ -60,15 +65,15 @@ export const getCurrentTeam = createSelector(
 
 export const teamReducer = createReducer(
   initialeState,
-  on(TeamsLoadSuccess, (state, teams) => ({
+  on(TeamsLoadSuccess, (state, props) => ({
     ...state,
-    teams: teams.teams,
+    teams: props.teams,
     error: ''
   })),
-  on(TeamsLoadFailure, (state, res) => ({
+  on(TeamsLoadFailure, (state, props) => ({
     ...state,
     teams: [],
-    error: res.error
+    error: props.error
   })),
   on(MarkAsFavourite, (state, data) => ({
     ...state,
