@@ -21,8 +21,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 
 import { reducer, TeamsEffect } from './teams/state';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { CityFilterComponent } from './teams/city-filter/city-filter.component';
+
 @NgModule({
   declarations: [
     AppComponent,

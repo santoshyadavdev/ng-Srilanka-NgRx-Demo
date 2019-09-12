@@ -15,7 +15,7 @@ export class MyTeamsComponent implements OnInit {
   myTeam$: Observable<ITeam[]>;
   displayedColumns = ['id', 'full_name', 'city', 'conference', 'division'];
 
-  constructor(private store: Store<fromTeam.State>) { }
+  constructor(private store: Store<fromTeam.TeamState>) { }
 
   ngOnInit() {
     this.store.dispatch(GetMyTeams());

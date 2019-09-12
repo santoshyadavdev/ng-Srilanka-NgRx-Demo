@@ -18,7 +18,7 @@ export class TeamsComponent implements OnInit {
 
   teams$: Observable<ITeam[]>;
   error$: Observable<string>;
-  constructor(private store: Store<fromTeam.State>) { }
+  constructor(private store: Store<fromTeam.TeamState>) { }
 
   ngOnInit() {
     this.store.dispatch(TeamLoad());

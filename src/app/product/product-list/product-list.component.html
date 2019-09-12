@@ -1,0 +1,16 @@
+<!-- {{products | json}} -->
+<mat-card *ngFor="let product of products" class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{product.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="product.productImage" [alt]="product.name">
+  <mat-card-content>
+    <p>
+      Price: {{product.price | currency: 'LKR'}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="cart(product)">Add To Cart</button>
+  </mat-card-actions>
+</mat-card>

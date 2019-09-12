@@ -6,6 +6,10 @@ import { MyTeamsComponent } from './teams/my-teams/my-teams.component';
 const routes: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'my-teams', component: MyTeamsComponent },
+  {
+    path: 'product', loadChildren: () => import('./product/product.module')
+      .then(module => module.ProductModule)
+  },
   { path: '', redirectTo: 'teams', pathMatch: 'full' }
 ];
 

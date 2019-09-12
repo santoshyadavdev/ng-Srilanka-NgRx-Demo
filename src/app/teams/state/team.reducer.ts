@@ -13,17 +13,18 @@ import {
   MarkAsFavourite,
   CityFilter
 } from './team.actions';
+import { IState } from '../../state';
 
-export interface TeamState {
+export interface TeamState extends IState {
   teams: ITeam[];
   favouriteTeams: ITeam[];
   currentCity: string | null;
   error: string;
 }
 
-export interface State {
-  teams: TeamState;
-}
+// export interface State extends IState {
+//   teams: TeamState;
+// }
 
 const initialeState: TeamState = {
   currentCity: null,
