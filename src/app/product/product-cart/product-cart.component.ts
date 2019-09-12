@@ -3,7 +3,6 @@ import { Store, select } from '@ngrx/store';
 import { ProductState, getCart } from '../state/product.reducer';
 import { Observable } from 'rxjs';
 import { IProduct } from '../IProduct';
-import { GetCart } from '../state/product.actions';
 
 @Component({
   selector: 'app-product-cart',

@@ -6,7 +6,7 @@ import {
 } from '@ngrx/store';
 import {
   ProductLoadFailure,
-  ProductLoadSuccess, FilterProduct, AddToCart, GetCart
+  ProductLoadSuccess, FilterProduct, AddToCart
 } from './product.actions';
 import { IState } from '../../state';
 import { IProduct } from '../IProduct';
