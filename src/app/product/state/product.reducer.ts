@@ -64,9 +64,9 @@ export const getCart = createSelector(
 
 export const productReducer = createReducer(
   initialeState,
-  on(ProductLoadSuccess, (state, props) => ({
+  on(ProductLoadSuccess, (state, { products }) => ({
     ...state,
-    products: props.products,
+    products: products,
     error: ''
   })),
   on(ProductLoadFailure, (state, props) => ({
