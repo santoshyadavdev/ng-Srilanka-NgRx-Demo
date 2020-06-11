@@ -6,7 +6,7 @@ import {
 } from '@ngrx/store';
 import {
   ProductLoadFailure,
-  ProductLoadSuccess, FilterProduct, AddToCart
+  ProductLoadSuccess, FilterProduct, AddToCart, ProductLoad
 } from './product.actions';
 import { IState } from '../../state';
 import { IProduct } from '../IProduct';
@@ -69,14 +69,14 @@ export const productReducer = createReducer(
     products: products,
     error: ''
   })),
-  on(ProductLoadFailure, (state, props) => ({
+  on(ProductLoadFailure, (state, { error }) => ({
     ...state,
     products: [],
-    error: props.error
+    error: error
   })),
-  on(FilterProduct, (state, prop) => ({
+  on(FilterProduct, (state, { min, max }) => ({
     ...state,
-    priceFilter: { min: prop.min, max: prop.max }
+    priceFilter: { min: min, max: max }
   })),
   on(AddToCart, (state, prop) => ({
     ...state,
